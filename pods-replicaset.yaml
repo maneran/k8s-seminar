@@ -20,7 +20,7 @@ spec:
       containers:
       - name: bearapp
         image: supergiantkir/animals:bear
-        volumeMounts:
+        volumeMounts: 
         - mountPath: /test-pd
           name: test-volume
       volumes:
