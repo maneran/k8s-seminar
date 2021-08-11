@@ -1,28 +1,31 @@
 apiVersion: apps/v1
 kind: ReplicaSet
-metadata: 
+metadata:
   name: frontend
-  labels: 
+  labels:
     app: ui
     tier: frontend
-spec: 
+spec:
   replicas: 2
-  selector:  
+  selector:
     matchLabels:
       tier: frontend
-  template:  
+  template:
     metadata:
       labels:
         tier: frontend
-    spec: 
-      containers:  
+    spec:
+      containers:
       - name: bearapp
         image: supergiantkir/animals:bear
-        volumeMounts: 
+        volumeMounts:
         - mountPath: /test-pd
           name: test-volume
-      volumes:   
-      - name: test-volume
-        hostPath: 
-        path: /data
-        type: Directory
+
+      volumes:
+        - name: test-volume
+          hostPath:
+            # directory location on host
+            path: /tmp/data
+            # this field is optional
+            type: DirectoryOrCreate
