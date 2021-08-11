@@ -24,9 +24,9 @@ spec:
         - mountPath: /test-pd
           name: test-volume
   volumes:
-    - name: test-volume
-      hostPath:
-      # directory location on host
-      path: /data
-      # this field is optional
-      type: Directory
+  - name: test-volume
+    hostPath:
+    # directory location on host
+    path: /data
+    # this field is optional
+    type: Directory
